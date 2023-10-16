@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://gtfuhr.github.io/al-folio/sitemap.xml
+Sitemap: https://gtfuhr.github.io/sitemap.xml
