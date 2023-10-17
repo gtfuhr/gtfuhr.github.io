@@ -1,81 +1,66 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
-importance: 3
-category: work
+title: Snowflake Data Warehouse for Restaurant Review Data
+description: Data Warehouse for Restaurant Review data
+img: assets/img/DataArchitectureSnowflake.png
+importance: 1
+category: data architecture
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+# Design a Data Warehouse for Reporting and OLAP
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Project rubric:
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Staging:
+Students will be able to (SWBAT) load local data files into a Snowflake staging schema, using the command-line snowsql tool:
+![01_staging_etl_snowsql_yelp_files](assets/img/snowflake/01_staging_etl_snowsql_yelp_files.png)
+![02_staging_stage_files_yelp](assets/img/snowflake/02_staging_stage_files_yelp.png)
+![03_staging_stage_files_yelp_checkin](assets/img/snowflake/03_staging_stage_files_yelp_checkin.png) 
+![04_staging_stage_files_yelp_covid_features](assets/img/snowflake/04_staging_stage_files_yelp_covid_features.png) 
+![05_staging_stage_files_yelp_tip](assets/img/snowflake/05_staging_stage_files_yelp_tip.png) 
+![06_staging_stage_files_yelp_review](assets/img/snowflake/06_staging_stage_files_yelp_review.png) 
+![07_staging_stage_files_yelp_user](assets/img/snowflake/07_staging_stage_files_yelp_user.png) 
+![08_staging_stage_files_yelp_business](assets/img/snowflake/08_staging_stage_files_yelp_business.png)
+![001_snowsql_proof](assets/img/snowflake/001_snowsql_proof.png)
+SWBAT load data files smaller than 50 MB into Snowflake using browser.
+![09_staging_csv_files_temp_precipitation](assets/img/snowflake/09_staging_csv_files_temp_precipitation.png)
+![010_staging_csv_files_temp_precipitation_proof](assets/img/snowflake/010_staging_csv_files_temp_precipitation_proof.png) 
+![011_staging_csv_files_temp_precipitation_etl](assets/img/snowflake/011_staging_csv_files_temp_precipitation_etl.png) 
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+SWBAT create a data architecture diagram showing the data files to stage to ODS to DWH to reporting.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+![00_data_architecture](assets/img/snowflake/00_data_architecture.png)
 
+## Operational Data Store:
+SWBAT use snowsql to transform data from staging to ODS.
+![10_ods_ddl_etl](assets/img/snowflake/10_ods_ddl_etl.png) 
+![13_ods_ddl_etl](assets/img/snowflake/13_ods_ddl_etl.png) 
+![14_ods_ddl_etl](assets/img/snowflake/14_ods_ddl_etl.png)
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+SWBAT expand and spread JSON data into individual columns.
+![12_ods_ddl_etl](assets/img/snowflake/12_ods_ddl_etl.png) 
 
+SWBAT calculate and compare data compression between raw files, staging, and ODS.
+![02_staging_stage_files_yelp](assets/img/snowflake/02_staging_stage_files_yelp.png)
+![010_staging_csv_files_temp_precipitation_proof](assets/img/snowflake/010_staging_csv_files_temp_precipitation_proof.png)
+![17_ods_table_sizes](assets/img/snowflake/17_ods_table_sizes.png)
+![18_staging_table_sizes](assets/img/snowflake/18_staging_table_sizes.png)
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+SWBAT reverse engineer data sets into an entity relationship model.
+![15_ods_ER](assets/img/snowflake/15_ods_ER.png)
 
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+SWBAT integrate climate and Yelp data sets by identifying a common data field.
+![19_yelp_climate_common_field_integration](assets/img/snowflake/19_yelp_climate_common_field_integration.png)
+
+## Data Warehouse:
+SWBAT design a star schema with dimensions and fact tables.
+![21_dwh_star_schema](assets/img/snowflake/21_dwh_star_schema.png)
+
+SWBAT extract, transform and load from ODS model to DWH model.
+![20_dwh_ddl_etl](assets/img/snowflake/20_dwh_ddl_etl.png)
+
+SWBAT write SQL queries to generate a correlation report between climate data and Yelp data.
+![22_dwh_query](assets/img/snowflake/22_dwh_query.png)
+![A23_dwh_query](assets/img/snowflake/23_dwh_query.png)
+
+Finally, the DataWarehouse can be used to do analytics on the business data.
